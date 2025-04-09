@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <button class="hide">Hide</button>
+    <button class="show">Show</button>
+    <button class="toggle">Toggle</button>
+    <button class="fadeIn">FadeIn</button>
+    <button class="fadeOut">FadeOut</button>
+    <button class="fadeToggle">FadeToggle</button>
+    <button class="slideIn">SlideIn</button>
+    <button class="slideOut">SlideOut</button>
+    <button class="slideToggle">SlideToggle</button>
+   <hr> 
+    <img src="https://i.ytimg.com/vi/t0Q2otsqC4I/maxresdefault.jpg" alt="">
+  <script src="jquery-3.7.1.min.js"></script>
+  <script>
+        $(".hide").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").hide(1000)
+            }
+        )
+
+        $(".show").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").show(1000)
+            }
+        )
+
+        $(".toggle").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").toggle(1000)
+            }
+        )
+
+        $(".fadeIn").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").fadeIn(1000)
+            }
+        )
+        $(".fadeOut").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").fadeOut(1000)
+            }
+        )
+
+        $(".fadeToggle").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").fadeToggle(1000)
+            }
+        )
+
+        $(".slideIn").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").slideDown(1000)
+            }
+        )
+
+        $(".slideOut").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").slideUp(1000)
+            }
+        )
+
+        $(".slideToggle").click(
+            ()=>{
+                // 1000 millisecond = 1s
+                $("img").slideToggle(1000)
+            }
+        )
+    </script>
+
+</body>
+</html>

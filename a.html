@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Enter Name : ">
+    <button onclick="show();">Click Me</button>
+    <h1>Hey <span class="result"></span></h1>
+
+    <script>
+        let input = document.querySelector("input");
+        let result = document.querySelector(".result");
+
+        function show()
+        {
+            result.innerHTML = input.value;
+        }
+
+    </script>
+</body>
+</html>
