@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+        }
+
+        #grid div {
+            height: 200px;
+            width: 200px;
+            background-color: rgb(243, 204, 187);
+            border: 2px solid black;
+            cursor: pointer;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            /* horizontally center */
+            align-items: center;
+            /* vertically center */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start">
+        <h1>Welcome to Tic Tac Toe</h1>
+        Select Your choice : <input type="radio" name="choice" id="" value="X">X
+        <input type="radio" name="choice" id="" value="0">0
+        <button class="start">START GAME</button>
+    </div>
+    <hr>
+    <div id="grid">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h2>Winner is : <span class="winner"></span></h2>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+
+        $("#grid").hide(1)
+        let start = 0;
+        let allBoxes = $(".box")
+        let choice = "";
+        let cpuChoice = "";
+        const  winsCombination = [[0,1,2],[3,4,5],[6,7,8],
+                                  [0,3,6],[1,4,7],[2,5,8],
+                                  [0,4,8],[2,4,6]];
+        $("input").click(
+            function () {
+
+                choice = $(this).val()
+                if (choice == "X") {
+                    cpuChoice = "0"
+                }
+                else {
+                    cpuChoice = "X"
+                }
+                console.log(cpuChoice)
+                start = 1
+            }
+
+        )
+        $(".start").click(
+            function () {
+                if (start == 1) {
+                    $("#grid").fadeIn(1000)
+
+                }
+            }
+        )
+
+
+        $(".box").click(
+            function () {
+                $(this).html(choice);
+                checkWinner(choice);
+                cpuMove();
+
+            }
+        )
+
+        function cpuMove() {
+            let position = parseInt(Math.random(0, 1) * 9)
+            // console.log(allBoxes.get(position))
+            $(allBoxes.get(position)).html(cpuChoice);
+            checkWinner(cpuChoice);
+
+        }
+
+        function checkWinner(ch)
+        {
+            winsCombination.forEach((comb)=>{
+                console.log($(allBoxes[comb[0]]).html());
+                if ($(allBoxes[comb[0]]).html()==ch &&
+                $(allBoxes[comb[1]]).html()==ch &&
+                $(allBoxes[comb[2]]).html()==ch)
+                {
+                    console.log("Wins");
+                    $(".winner").html(ch);
+                }
+            });
+
+
+            
+        }
+
+        
+
+
+
+    </script>
+</body>
+
+</html>
