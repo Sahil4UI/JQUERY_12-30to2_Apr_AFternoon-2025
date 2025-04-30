@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>TODO APP</h1>
+    <h1 style="font-style: italic; color: rgb(67, 89, 45);">TODO APP</h1>
     <input type="text" placeholder="Enter Data">
+
     <ul>
 
     </ul>
+    <script src="jquery-3.7.1.min.js"></script>
     <script>
-      let input = document.querySelector("input");
-      input.addEventListener("blur",append);
-        let  ul = document.querySelector("ul");
-        let list = [];
-      function append()
-      {
-          let li = document.createElement("li");
-          li.innerHTML = input.value + "<button>delete</button>";
-          list.push(li);
 
-          for (let i=0;i<=list.length;i++)
-          {
-            ul.appendChild(list[i])
-          }
-      }
+        $("input").on("blur",
+            function () {
+                $("ul").append("<li>" + $(this).val() + "<button class='btn'>DELETE</button>" + "</li>");
+                $(".btn").click(
+                    function () {
+                        console.log($(this).parent("li"))
+                    }
+                )
+            }
+        )
     </script>
 </body>
+
 </html>
