@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 style="font-style: italic; color: rgb(67, 89, 45);">TODO APP</h1>
+  <input type="text" placeholder="Enter Data">
+
+  <ul>
+
+  </ul>
+  <script>
+    let input = document.querySelector("input");
+
+    input.addEventListener("blur", function () {
+
+      if (input.value.length > 0) {
+        append();
+
+      }
+    });
+
+    let ul = document.querySelector("ul");
+
+    let list = [];
+
+    function append() {
+      let li = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerHTML = "Delete";
+      button.className = "del";
+      button.addEventListener("click", del);
+      span = document.createElement("span");
+      span.innerHTML = input.value;
+      input.value = "";
+      li.appendChild(span);
+      li.appendChild(button);
+      let edit = document.createElement("button");
+      edit.addEventListener("click", edit1);
+      edit.innerHTML = "EDIT";
+      li.appendChild(edit);
+      list.push(li);
+      list.forEach((val) => {
+        ul.appendChild(val)
+      })
+
+    }
+
+    function edit1() {
+      let value = prompt("Enter New Value :");
+      if (value.length > 0)
+        event.target.previousSibling.previousSibling.innerHTML = value;
+
+    }
+
+    function del() {
+      let deleted_li = event.target.parentElement
+      list.pop(deleted_li);
+      ul.removeChild(deleted_li);
+    }
+
+  </script>
+</body>
+
+</html>
